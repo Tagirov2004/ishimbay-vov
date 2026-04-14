@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вклад города Ишимбай в победу над фашизмом</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B08D20',
+                        },
+                        dark: {
+                            900: '#0B1120',
+                            800: '#151E32',
+                            700: '#1E2940',
+                            600: '#2A3856',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0B1120;
+            color: #E2E8F0;
+        }
+        .gold-text {
+            background: linear-gradient(to right, #D4AF37, #F5D061, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 64, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .chart-bar {
+            transition: width 1.5s ease-out;
+            width: 0%;
+        }
+        .chart-bar.animate {
+            width: var(--target);
+        }
+        .nav-scrolled {
+            background-color: rgba(11, 17, 32, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .hero-card {
+            transition: all 0.3s ease;
+        }
+        .hero-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
+        }
+        .hero-card img {
+            filter: sepia(20%) contrast(1.05);
+            transition: filter 0.3s ease;
+        }
+        .hero-card:hover img {
+            filter: sepia(0%) contrast(1.1);
+        }
+        /* Mobile hamburger menu */
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.open {
+            display: flex;
+        }
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-toggle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="#hero" class="text-lg md:text-2xl font-serif font-bold tracking-wide">
+                Ишимбай <span class="text-gold-400">1941-1945</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="desktop-nav hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#intro" class="text-sm hover:text-gold-400 transition-colors">Введение</a>
+                <a href="#oil" class="text-sm hover:text-gold-400 transition-colors">Нефть</a>
+                <a href="#industry" class="text-sm hover:text-gold-400 transition-colors">Промышленность</a>
+                <a href="#people" class="text-sm hover:text-gold-400 transition-colors">Людской подвиг</a>
+                <a href="#practice" class="text-sm hover:text-gold-400 transition-colors">Проект</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle text-gold-400 focus:outline-none" onclick="toggleMenu()">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu flex-col items-center mt-3 pb-4 space-y-3 bg-dark-900/95 border-t border-dark-700">
+            <a href="#intro" class="text-slate-300 hover:text-gold-400 transition-colors" onclick="toggleMenu()">Введение</a>
+            <a href="#oil" class="text-slate-300 hover:text-gold-400 transition-colors" onclick="toggleMenu()">Нефть</a>
+            <a href="#industry" class="text-slate-300 hover:text-gold-400 transition-colors" onclick="toggleMenu()">Промышленность</a>
+            <a href="#people" class="text-slate-300 hover:text-gold-400 transition-colors" onclick="toggleMenu()">Людской подвиг</a>
+            <a href="#practice" class="text-slate-300 hover:text-gold-400 transition-colors" onclick="toggleMenu()">Проект</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="relative min-h-screen flex items-center justify-center parallax-bg" style="background-image: url('hero_bg.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/60 to-dark-900"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="mb-6 reveal">
+                <span class="bg-gold-500/20 text-gold-400 px-3 py-1 md:px-4 md:py-1 rounded-full text-xs md:text-sm font-semibold tracking-wider border border-gold-500/30">ГОРОД ТРУДОВОЙ ДОБЛЕСТИ</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 md:mb-6 leading-tight reveal">
+                Вклад города <span class="gold-text">Ишимбай</span> <br class="hidden sm:block"/> в победу над фашизмом
+            </h1>
+            <p class="text-base md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-10 font-light reveal max-w-2xl mx-auto px-2">
+                Героический трудовой подвиг в глубоком тылу. История о том, как нефть, металл и люди помогли ковать Победу.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center reveal">
+                <a href="#intro" class="px-6 py-3 md:px-8 md:py-3 bg-gold-600 hover:bg-gold-500 text-white rounded-lg font-semibold transition-colors text-sm md:text-base">Начать изучение</a>
+                <a href="#practice" class="px-6 py-3 md:px-8 md:py-3 bg-transparent border border-slate-500 hover:border-gold-400 hover:text-gold-400 rounded-lg font-semibold transition-colors text-sm md:text-base">О проекте</a>
+            </div>
+            <p class="mt-8 md:mt-12 text-xs md:text-sm text-slate-500 reveal">Выполнила: Болонина Анастасия, 10б класс</p>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section id="intro" class="py-16 md:py-24 bg-dark-900">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="reveal order-2 md:order-1">
+                    <h2 class="text-2xl md:text-4xl font-serif font-bold mb-4 md:mb-6">Актуальность <span class="text-gold-400">темы</span></h2>
+                    <p class="text-slate-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                        В 2024 году городу Ишимбаю было присвоено почетное звание «Город трудовой доблести». 
+                        Это событие подтверждает необходимость глубокого изучения истории города в годы войны. 
+                        Победа ковалась не только на полях сражений, но и в глубоком тылу, где трудились женщины, старики и подростки.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-6 md:mt-8">
+                        <div class="glass-panel p-4 md:p-6 rounded-xl">
+                            <h4 class="text-gold-400 font-bold mb-2 text-sm md:text-base">Цель проекта</h4>
+                            <p class="text-xs md:text-sm text-slate-400">Изучить и систематизировать сведения о роли Ишимбая как одного из ключевых промышленных центров тыла.</p>
+                        </div>
+                        <div class="glass-panel p-4 md:p-6 rounded-xl">
+                            <h4 class="text-gold-400 font-bold mb-2 text-sm md:text-base">Объект</h4>
+                            <p class="text-xs md:text-sm text-slate-400">История города Ишимбая в период 1941–1945 гг.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal order-1 md:order-2 relative">
+                    <div class="absolute -inset-4 bg-gold-500/20 rounded-xl blur-xl"></div>
+                    <img src="img.png" alt="Нефтяная вышка" class="relative rounded-xl shadow-2xl border border-dark-600 w-full grayscale hover:grayscale-0 transition duration-500 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oil Section -->
+    <section id="oil" class="py-16 md:py-24 bg-dark-800 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gold-500/5 skew-x-12 hidden md:block"></div>
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center mb-10 md:mb-16 reveal">
+                <span class="text-gold-400 font-bold tracking-widest uppercase text-xs md:text-sm">Глава 1</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-2 md:mt-4 mb-4 md:mb-6">«Второй Баку»</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base px-2">Нефть была кровью войны. Без горючего не могли двигаться танковые колонны и летать самолеты. Ишимбай взял на себя основную нагрузку.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-16">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl text-center reveal hover:border-gold-500/50 transition-colors">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">4.5 <span class="text-xl md:text-2xl text-gold-400">млн</span></div>
+                    <div class="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-3 md:mb-4">Тонн нефти</div>
+                    <p class="text-xs text-slate-500">Добыто за годы войны (1941-1945)</p>
+                </div>
+                <div class="glass-panel p-6 md:p-8 rounded-2xl text-center reveal hover:border-gold-500/50 transition-colors" style="transition-delay: 0.1s;">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">1 / 3</div>
+                    <div class="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-3 md:mb-4">Танков</div>
+                    <p class="text-xs text-slate-500">Заправлялись горючим из Ишимбая</p>
+                </div>
+                <div class="glass-panel p-6 md:p-8 rounded-2xl text-center reveal hover:border-gold-500/50 transition-colors sm:col-span-2 md:col-span-1" style="transition-delay: 0.2s;">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">398</div>
+                    <div class="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-3 md:mb-4">Новых скважин</div>
+                    <p class="text-xs text-slate-500">Пробурено в экстремальных условиях</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div class="reveal">
+                    <h3 class="text-xl md:text-2xl font-serif font-bold mb-4 md:mb-6">Геологический подвиг</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                        Война не остановила поиски новых месторождений. Трудом геологов были открыты 
+                        <strong class="text-white">Карлинское, Куганакское и Салиховское</strong> месторождения.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                        Особую важность имело открытие <strong class="text-white">Кинзебулатовского</strong> месторождения в сентябре 1943 года, 
+                        совпавшее с битвой на Курской дуге. Проходка составила 275 тыс. метров, превысив довоенные показатели на 40 тыс. метров.
+                    </p>
+                </div>
+                <div class="reveal bg-dark-700 p-6 md:p-8 rounded-xl border border-dark-600">
+                    <p class="italic text-base md:text-lg text-slate-300 font-serif mb-3 md:mb-4">
+                        «В период войны каждый третий советский танк заправлялся горючим, произведенным из нефти, добытой в Ишимбае.»
+                    </p>
+                    <p class="text-gold-400 font-bold text-sm md:text-base">— Н. К. Байбаков, нарком нефтяной промышленности</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Section -->
+    <section id="industry" class="py-16 md:py-24 bg-dark-900">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16 reveal">
+                <span class="text-gold-400 font-bold tracking-widest uppercase text-xs md:text-sm">Глава 2</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-2 md:mt-4 mb-4 md:mb-6">Промышленная Эвакуация</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16">
+                <div class="reveal">
+                    <h3 class="text-xl md:text-2xl font-serif font-bold mb-4 md:mb-6">Заводы для фронта</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                        Осенью 1941 года в Ишимбай прибыл <strong class="text-white">Механический завод им. Сталина</strong> из Баку (745 работников). 
+                        Также были эвакуированы Грозненский завод и завод из Гродно. Рабочие жили в бараках, а станки ставили под открытым небом.
+                    </p>
+                    <ul class="text-slate-400 space-y-2 md:space-y-3 ml-4 text-sm md:text-base">
+                        <li class="flex items-start"><span class="w-2 h-2 bg-gold-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></span><span>Направляющие гильзы для <strong class="text-white ml-1">«Катюш»</strong></span></li>
+                        <li class="flex items-start"><span class="w-2 h-2 bg-gold-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></span><span>Корпуса для 120-мм мин</span></li>
+                        <li class="flex items-start"><span class="w-2 h-2 bg-gold-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></span><span><strong class="text-white ml-1">5 миллионов</strong> деталей выпущено</span></li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <div class="glass-panel p-5 md:p-6 rounded-xl">
+                        <h4 class="text-white font-bold mb-3 md:mb-4 border-b border-dark-600 pb-2 text-sm md:text-base">Производственные показатели</h4>
+                        <div class="space-y-3 md:space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs md:text-sm mb-1">
+                                    <span class="text-slate-400">Нефтепереработка</span>
+                                    <span class="text-gold-400">95%</span>
+                                </div>
+                                <div class="h-2 bg-dark-700 rounded-full"><div class="h-full bg-gold-500 rounded-full chart-bar" style="--target: 95%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs md:text-sm mb-1">
+                                    <span class="text-slate-400">Буровое оборудование</span>
+                                    <span class="text-gold-400">85%</span>
+                                </div>
+                                <div class="h-2 bg-dark-700 rounded-full"><div class="h-full bg-gold-500 rounded-full chart-bar" style="--target: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs md:text-sm mb-1">
+                                    <span class="text-slate-400">Артели (обмундирование)</span>
+                                    <span class="text-gold-400">70%</span>
+                                </div>
+                                <div class="h-2 bg-dark-700 rounded-full"><div class="h-full bg-gold-500 rounded-full chart-bar" style="--target: 70%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-dark-800 p-5 md:p-8 rounded-xl border border-dark-600">
+                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                    <div class="md:w-1/3 text-center md:text-left">
+                        <h3 class="text-xl md:text-2xl font-serif font-bold mb-3 md:mb-4">Промышленные артели</h3>
+                        <p class="text-slate-400 text-xs md:text-sm">Более 13 артелей (в т.ч. «Башкурдистан», «Ишимбайтрикотаж») шили ватные фуфайки, гимнастерки, варили соль и обрабатывали овчину для полушубков.</p>
+                    </div>
+                    <div class="md:w-2/3 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+                        <div class="bg-dark-900 p-3 md:p-4 rounded text-center border border-dark-700">
+                            <span class="block text-xl md:text-2xl mb-1 md:mb-2">🧥</span>
+                            <span class="text-xs md:text-sm text-slate-300">Одежда</span>
+                        </div>
+                        <div class="bg-dark-900 p-3 md:p-4 rounded text-center border border-dark-700">
+                            <span class="block text-xl md:text-2xl mb-1 md:mb-2">🧱</span>
+                            <span class="text-xs md:text-sm text-slate-300">Стройматериалы</span>
+                        </div>
+                        <div class="bg-dark-900 p-3 md:p-4 rounded text-center border border-dark-700">
+                            <span class="block text-xl md:text-2xl mb-1 md:mb-2">🧼</span>
+                            <span class="text-xs md:text-sm text-slate-300">Мыло и соль</span>
+                        </div>
+                        <div class="bg-dark-900 p-3 md:p-4 rounded text-center border border-dark-700">
+                            <span class="block text-xl md:text-2xl mb-1 md:mb-2">🥾</span>
+                            <span class="text-xs md:text-sm text-slate-300">Валенки</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- People & Heroes Section -->
+    <section id="people" class="py-16 md:py-24 bg-dark-800 relative">
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center mb-10 md:mb-16 reveal">
+                <span class="text-gold-400 font-bold tracking-widest uppercase text-xs md:text-sm">Глава 3</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-2 md:mt-4 mb-4 md:mb-6">Людской Подвиг</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-16">
+                <div class="glass-panel p-6 md:p-8 rounded-xl reveal">
+                    <h3 class="text-xl md:text-2xl font-serif font-bold mb-4 md:mb-6 text-white">Мобилизация и потери</h3>
+                    <div class="flex items-end gap-4 md:gap-6 mb-6 md:mb-8 flex-wrap">
+                        <div>
+                            <span class="text-4xl md:text-6xl font-bold text-gold-400">24</span>
+                            <span class="text-lg md:text-xl text-slate-400">тыс.</span>
+                            <p class="text-xs md:text-sm text-slate-500 mt-1 md:mt-2">Всего ушло на фронт</p>
+                        </div>
+                        <div>
+                            <span class="text-4xl md:text-6xl font-bold text-white">10</span>
+                            <span class="text-lg md:text-xl text-slate-400">тыс.</span>
+                            <p class="text-xs md:text-sm text-slate-500 mt-1 md:mt-2">Жителей города</p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-dark-600 w-full mb-4 md:mb-6"></div>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base">
+                        Около 3 тысяч ишимбайцев не вернулись. 8600 человек награждены боевыми орденами и медалями.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 md:p-8 rounded-xl reveal" style="transition-delay: 0.1s;">
+                    <h3 class="text-xl md:text-2xl font-serif font-bold mb-4 md:mb-6 text-white">Тыл и госпитали</h3>
+                    <p class="text-slate-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                        Город принял более 2000 беженцев. В двух школах были размещены военные госпитали. 
+                        Более <strong class="text-white">двух третей</strong> раненых солдат вновь встали в строй.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base">
+                        В Ишимбай переехал из Москвы нефтяной институт им. Губкина. Школы работали в две смены, дети собирали колоски и помогали в госпиталях.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl md:text-3xl font-serif font-bold text-center mb-8 md:mb-10 text-white reveal">Герои Советского Союза</h3>
+            
+            <!-- Heroes Grid with Photos -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 mb-8 md:mb-12">
+                
+                <!-- Hero 1: Бердин Г.И. -->
+                <div class="hero-card glass-panel p-3 md:p-4 rounded-xl text-center reveal cursor-pointer" onclick="showHeroInfo('berdin')">
+                    <div class="w-full aspect-[3/4] overflow-hidden rounded-lg mb-3 bg-dark-900 border border-dark-600">
+                        <img src="Бердин Г.И.png" alt="Бердин Григорий Иванович" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-bold text-xs md:text-sm text-white leading-tight">Бердин Г.И.</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1">Герой Днепра</p>
+                </div>
+
+                <!-- Hero 2: Нагуманов Д.С. -->
+                <div class="hero-card glass-panel p-3 md:p-4 rounded-xl text-center reveal cursor-pointer" style="transition-delay: 0.05s;" onclick="showHeroInfo('nagumanov')">
+                    <div class="w-full aspect-[3/4] overflow-hidden rounded-lg mb-3 bg-dark-900 border border-dark-600">
+                        <img src="Нагуманов Д.С.png" alt="Нагуманов Давлетша Сайранович" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-bold text-xs md:text-sm text-white leading-tight">Нагуманов Д.С.</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1">Летчик</p>
+                </div>
+
+                <!-- Hero 3: Халиков Т.Г. -->
+                <div class="hero-card glass-panel p-3 md:p-4 rounded-xl text-center reveal cursor-pointer" style="transition-delay: 0.1s;" onclick="showHeroInfo('halikov')">
+                    <div class="w-full aspect-[3/4] overflow-hidden rounded-lg mb-3 bg-dark-900 border border-dark-600">
+                        <img src="Халиков Т.Г.png" alt="Халиков Тагир Галиевич" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-bold text-xs md:text-sm text-white leading-tight">Халиков Т.Г.</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1">Командир</p>
+                </div>
+
+                <!-- Hero 4: Черных Н.А. -->
+                <div class="hero-card glass-panel p-3 md:p-4 rounded-xl text-center reveal cursor-pointer" style="transition-delay: 0.15s;" onclick="showHeroInfo('chernyh')">
+                    <div class="w-full aspect-[3/4] overflow-hidden rounded-lg mb-3 bg-dark-900 border border-dark-600">
+                        <img src="Черных Н.А.png" alt="Черных Николай Андреевич" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-bold text-xs md:text-sm text-white leading-tight">Черных Н.А.</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1">Танкист</p>
+                </div>
+
+                <!-- Hero 5: Рябов А.Ф. -->
+                <div class="hero-card glass-panel p-3 md:p-4 rounded-xl text-center reveal cursor-pointer" style="transition-delay: 0.2s;" onclick="showHeroInfo('ryabov')">
+                    <div class="w-full aspect-[3/4] overflow-hidden rounded-lg mb-3 bg-dark-900 border border-dark-600">
+                        <img src="Рябов А.Ф.png" alt="Рябов Алексей Филиппович" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-bold text-xs md:text-sm text-white leading-tight">Рябов А.Ф.</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1">Артиллерист</p>
+                </div>
+
+                <!-- Hero 6: Сайранов С.У. -->
+                <div class="hero-card glass-panel p-3 md:p-4 rounded-xl text-center reveal cursor-pointer" style="transition-delay: 0.25s;" onclick="showHeroInfo('sairanov')">
+                    <div class="w-full aspect-[3/4] overflow-hidden rounded-lg mb-3 bg-dark-900 border border-dark-600">
+                        <img src="Сайранов С.У.png" alt="Сайранов Сагит Усманович" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-bold text-xs md:text-sm text-white leading-tight">Сайранов С.У.</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1">Разведчик</p>
+                </div>
+            </div>
+
+            <!-- Hero Info Modal -->
+            <div id="heroModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-dark-900/90 backdrop-blur-sm p-4" onclick="closeHeroInfo()">
+                <div class="glass-panel max-w-lg w-full rounded-2xl p-6 md:p-8 relative" onclick="event.stopPropagation()">
+                    <button onclick="closeHeroInfo()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                    <div id="heroModalContent" class="text-center">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кавалеры ордена Славы -->
+            <div class="reveal text-center mt-6 md:mt-8">
+                <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
+                    Полными кавалерами ордена Славы стали <strong class="text-white">Г. Т. Кузнецов</strong> и <strong class="text-white">Ш. Ф. Маннанов</strong>. 
+                    Орден Славы был солдатским орденом, и получить все три степени было крайне сложно.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Part -->
+    <section id="practice" class="py-16 md:py-24 bg-dark-900">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16 reveal">
+                <span class="text-gold-400 font-bold tracking-widest uppercase text-xs md:text-sm">Практическая часть</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-2 md:mt-4 mb-4 md:mb-6">Результаты и Продукт</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-10 md:mb-16">
+                <div class="reveal">
+                    <div class="glass-panel p-6 md:p-8 rounded-xl h-full border-gold-500/30">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Продукт: Web-сайт</h3>
+                        <p class="text-slate-400 mb-4 md:mb-6 text-sm md:text-base">
+                            В рамках проекта создан веб-сайт «Вклад города Ишимбай в победу над фашизмом».
+                        </p>
+                        <ul class="text-xs md:text-sm text-slate-300 space-y-1 md:space-y-2 list-disc ml-4 md:ml-5">
+                            <li>Разработка на HTML и CSS в Visual Studio Code</li>
+                            <li>Адаптивная верстка для различных устройств</li>
+                            <li>Визуализация исторических данных</li>
+                            <li>Целевая аудитория: учащиеся 5–11 классов</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Социологический опрос</h3>
+                    <p class="text-xs md:text-sm text-slate-400 mb-4 md:mb-6">Выборка: >30 учащихся 9–11 классов МБОУ СОШ №2 (Google Forms)</p>
+                    
+                    <div class="space-y-4 md:space-y-5">
+                        <div>
+                            <div class="flex justify-between text-xs md:text-sm mb-1">
+                                <span class="text-slate-300">Знают звание «Город трудовой доблести»</span>
+                                <span class="text-gold-400 font-bold">48%</span>
+                            </div>
+                            <div class="w-full bg-dark-700 rounded-full h-2 md:h-2.5">
+                                <div class="bg-gold-500 h-2 md:h-2.5 rounded-full chart-bar" style="--target: 48%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs md:text-sm mb-1">
+                                <span class="text-slate-300">Знают объем добытой нефти (4,5 млн т)</span>
+                                <span class="text-gold-400 font-bold">71%</span>
+                            </div>
+                            <div class="w-full bg-dark-700 rounded-full h-2 md:h-2.5">
+                                <div class="bg-gold-500 h-2 md:h-2.5 rounded-full chart-bar" style="--target: 71%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs md:text-sm mb-1">
+                                <span class="text-slate-300">Знают имена Героев Советского Союза</span>
+                                <span class="text-gold-400 font-bold">68%</span>
+                            </div>
+                            <div class="w-full bg-dark-700 rounded-full h-2 md:h-2.5">
+                                <div class="bg-gold-500 h-2 md:h-2.5 rounded-full chart-bar" style="--target: 68%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs md:text-sm mb-1">
+                                <span class="text-slate-300">Родственники участвовали в ВОВ</span>
+                                <span class="text-gold-400 font-bold">73%</span>
+                            </div>
+                            <div class="w-full bg-dark-700 rounded-full h-2 md:h-2.5">
+                                <div class="bg-gold-500 h-2 md:h-2.5 rounded-full chart-bar" style="--target: 73%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 md:mt-6 bg-gold-500/10 p-3 md:p-4 rounded-lg border border-gold-500/20">
+                        <p class="text-xs md:text-sm text-slate-300"><strong>Вывод:</strong> Гипотеза не подтвердилась. Уровень знаний достаточен. Большинство знает общие факты о войне.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="reveal max-w-3xl mx-auto text-center bg-dark-800 p-6 md:p-10 rounded-xl border border-dark-600">
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">Заключение</h3>
+                <p class="text-slate-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
+                    Ишимбай действительно был одним из ключевых стратегических центров обеспечения Победы.
+                    <br class="hidden md:block">
+                    <strong class="text-gold-400">4,5 млн тонн</strong> нефти, <strong class="text-gold-400">5 млн деталей</strong> для фронта, <strong class="text-gold-400">6 Героев</strong> Советского Союза.
+                </p>
+                <p class="text-slate-400 text-xs md:text-sm">
+                    Проект демонстрирует, что история большой страны складывается из историй малых городов, 
+                    и каждый житель Ишимбая внес свою лепту в общее дело Победы.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-700 py-10 md:py-12">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <div class="mb-4 md:mb-6">
+                <span class="text-xl md:text-2xl font-serif font-bold text-slate-500">Ишимбай 1941-1945</span>
+            </div>
+            <p class="text-slate-400 mb-2 text-sm">МБОУ СОШ №2 г. Ишимбая</p>
+            <div class="text-xs md:text-sm text-slate-500 mb-4 md:mb-6">
+                Выполнила: Болонина Анастасия Ивановна, 10б класс<br>
+                Руководитель: Фаткуллина Оксана Юрьевна
+            </div>
+            <p class="text-xs text-slate-600">© 2026 Ишимбай. Индивидуальный проект по истории.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Hero data
+        const heroes = {
+            berdin: {
+                name: 'Бердин Григорий Иванович',
+                role: 'Герой Советского Союза',
+                desc: 'Проявил выдающийся героизм при форсировании реки Днепр. За мужество и отвагу был удостоен высокого звания Героя Советского Союза.'
+            },
+            nagumanov: {
+                name: 'Нагуманов Давлетша Сайранович',
+                role: 'Герой Советского Союза',
+                desc: 'Летчик-штурмовик, совершивший множество боевых вылетов. За проявленное мужество в воздушных боях был удостоен звания Героя Советского Союза.'
+            },
+            halikov: {
+                name: 'Халиков Тагир Галиевич',
+                role: 'Герой Советского Союза',
+                desc: 'Командир подразделения, освобождавший города Европы. Проявил героизм и отвагу в боях за освобождение оккупированных территорий.'
+            },
+            chernyh: {
+                name: 'Черных Николай Андреевич',
+                role: 'Герой Советского Союза',
+                desc: 'Танкист, уничтоживший множество единиц вражеской техники. За героизм в танковых сражениях был удостоен звания Героя Советского Союза.'
+            },
+            ryabov: {
+                name: 'Рябов Алексей Филиппович',
+                role: 'Герой Советского Союза',
+                desc: 'Артиллерист, отличившийся в боях за Сталинград. За мужество и мастерство в артиллерийских боях был удостоен звания Героя Советского Союза.'
+            },
+            sairanov: {
+                name: 'Сайранов Сагит Усманович',
+                role: 'Герой Советского Союза',
+                desc: 'Разведчик, предоставлявший ценные данные командованию. За проявленную отвагу и отважные разведывательные операции был удостоен звания Героя Советского Союза.'
+            }
+        };
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        // Hero modal
+        function showHeroInfo(heroKey) {
+            const hero = heroes[heroKey];
+            if (!hero) return;
+            
+            const modal = document.getElementById('heroModal');
+            const content = document.getElementById('heroModalContent');
+            
+            content.innerHTML = `
+                <h3 class="text-xl md:text-2xl font-serif font-bold text-gold-400 mb-2">${hero.name}</h3>
+                <p class="text-sm text-gold-500 mb-4">${hero.role}</p>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed">${hero.desc}</p>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHeroInfo() {
+            const modal = document.getElementById('heroModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeHeroInfo();
+            }
+        });
+
+        // Scroll Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Animate chart bars inside the section
+                    const bars = entry.target.querySelectorAll('.chart-bar');
+                    bars.forEach(bar => bar.classList.add('animate'));
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Close mobile menu on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 769) {
+                document.getElementById('mobileMenu').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
+
